@@ -1,0 +1,14 @@
+// media query mixin ----- 
+
+@mixin mq ($break-point) {
+    @media (min-width:$break-point) {
+        @content;
+    }
+
+}
+
+@mixin center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

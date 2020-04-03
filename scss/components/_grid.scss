@@ -1,0 +1,49 @@
+.container {
+  padding: 0 10px;
+  @include mq ($break-point) {
+    max-width: 1400px;
+  }
+  @include center;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 10px;
+    @include mq ($break-point) {
+      flex-direction: row;
+    }
+  }
+  
+  [class^=col] {
+    margin-top: 10px;
+    flex-basis: 100%;
+    min-height: 25px;
+    padding: 10px;
+    border-radius: 5px;
+    @include mq ($break-point) {
+      display: flex;
+      justify-content: center;
+      margin-top: 0;
+      align-items: center;
+
+      & + [class^=col] {
+        margin-left: 10px;
+      }
+    }
+  }
+  
+  
+@each $name, $theme in $themes {
+    #{$name} {
+      background-color: $theme;
+    }
+  }
+
+@include mq ($break-point) {
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      flex-basis: $i * 8.333333%;
+    }
+  }
+}
